@@ -1,0 +1,560 @@
+/* =====================
+   PALETTE BASE — "Morning light, champagne and paper"
+   Presa dall'app: accento Champagne, superfici chiare e calde,
+   colori delle aree (invitati, tavoli, pagamenti, checklist, fornitori, programma),
+   le due fedi e la scintilla dell'icona.
+   ===================== */
+:root {
+    color-scheme: light dark;
+
+    /* Champagne (accento dell'app) */
+    --gold: #b88c29;
+    --gold-deep: #856521;          /* testo/linee su fondo chiaro: contrasto AA */
+    --gold-soft: rgba(184, 140, 41, 0.14);
+    --gold-glow: rgba(214, 170, 70, 0.38);
+    --ring-line: rgba(184, 140, 41, 0.55);
+    --ring-line-faint: rgba(184, 140, 41, 0.28);
+
+    /* Colori delle aree dell'app */
+    --area-guests: #c0675a;
+    --area-tables: #a87728;
+    --area-payments: #5b8a68;
+    --area-checklist: #4e7ba6;
+    --area-vendors: #8c5a88;
+    --area-schedule: #6e68b5;
+
+    /* Testo */
+    --ink: #2b2418;
+    --ink-soft: rgba(43, 36, 24, 0.72);
+    --ink-faint: rgba(43, 36, 24, 0.55);
+    --on-accent: #ffffff;
+
+    /* Fondi: avorio, con un velo di rosa e di champagne */
+    --bg-a: #fbf7f0;
+    --bg-b: #f6efe2;
+    --bg-c: #f5e6df;
+    --bg-header: rgba(251, 247, 240, 0.78);
+    --bg-footer: #efe6d6;
+
+    /* Vetro (solo su controlli e card flottanti, come nell'app) */
+    --glass-bg: rgba(255, 255, 255, 0.62);
+    --glass-border: rgba(184, 140, 41, 0.22);
+    --glass-border-top: rgba(255, 255, 255, 0.95);
+    --glass-shadow: 0 8px 30px rgba(120, 88, 20, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    /* Sezione download */
+    --cta-a: #b88c29;
+    --cta-b: #8f6a1c;
+    --cta-c: #684e14;
+
+    --grain-opacity: 0.35;
+
+    /*
+      Le fedi dell'icona: due cerchi che si intrecciano.
+      Un solo layer-set riutilizzato in tutte le "inquadrature".
+      Il box deve avere aspect-ratio 1.6 / 1.
+    */
+    --rings:
+        radial-gradient(circle closest-side at 35% 50%, transparent 0 95.5%, var(--ring-line) 96% 100%, transparent 100.5%),
+        radial-gradient(circle closest-side at 65% 50%, transparent 0 95.5%, var(--ring-line) 96% 100%, transparent 100.5%);
+    --rings-aspect: 1.6 / 1;
+
+    /*
+      Un tavolo rotondo visto dall'alto con otto sedute.
+      Il box deve essere quadrato.
+    */
+    --table-seats:
+        radial-gradient(circle closest-side, transparent 0 94%, var(--ring-line) 95% 100%, transparent 101%) 50% 50% / 52% 52% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 50% 9% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 50% 91% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 9% 50% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 91% 50% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 20% 20% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 80% 20% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 20% 80% / 9% 9% no-repeat,
+        radial-gradient(circle closest-side, var(--ring-line-faint) 0 100%, transparent 101%) 80% 80% / 9% 9% no-repeat;
+}
+
+/* Notte: stessi nomi, valori dalla variante scura dell'app */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gold: #d9b25a;
+        --gold-deep: #e6c474;
+        --gold-soft: rgba(217, 178, 90, 0.16);
+        --gold-glow: rgba(217, 178, 90, 0.35);
+        --ring-line: rgba(217, 178, 90, 0.5);
+        --ring-line-faint: rgba(217, 178, 90, 0.26);
+
+        --area-guests: #cb7366;
+        --area-tables: #b5843a;
+        --area-payments: #66977a;
+        --area-checklist: #5b88b3;
+        --area-vendors: #9e6a9a;
+        --area-schedule: #7c76c2;
+
+        --ink: #f7efdd;
+        --ink-soft: rgba(247, 239, 221, 0.72);
+        --ink-faint: rgba(247, 239, 221, 0.52);
+        --on-accent: #1c170e;
+
+        --bg-a: #15110a;
+        --bg-b: #1c160d;
+        --bg-c: #24180f;
+        --bg-header: rgba(21, 17, 10, 0.78);
+        --bg-footer: #0f0c07;
+
+        --glass-bg: rgba(255, 244, 220, 0.06);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --glass-border-top: rgba(255, 255, 255, 0.22);
+        --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+        --cta-a: #7a5a17;
+        --cta-b: #5a4211;
+        --cta-c: #3c2c0b;
+
+        --grain-opacity: 0.18;
+    }
+}
+
+/* =====================
+   GLOBAL BACKGROUND
+   ===================== */
+html, body {
+    background: var(--bg-a) !important;
+    color: var(--ink);
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--on-accent);
+}
+
+/* Grana di carta, come la superficie dell'app: leggerissima e sopra tutto */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0 0.2  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-color-scheme: dark) {
+    body::after { mix-blend-mode: screen; }
+}
+
+/* =====================
+   INQUADRATURE — base comune
+   Ogni sezione ha un motivo dell'app dietro al contenuto
+   ===================== */
+.hero,
+.screenshots-section,
+.features-section,
+.testimonials-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before,
+.hero::after,
+.screenshots-section::before,
+.features-section::before,
+.testimonials-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* =====================
+   HEADER
+   ===================== */
+.site-header {
+    background: var(--bg-header) !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+.site-header .brand-name {
+    color: var(--ink) !important;
+}
+
+.site-header .nav-link {
+    color: var(--ink-soft) !important;
+}
+
+.site-header .nav-link:hover {
+    color: var(--gold-deep) !important;
+}
+
+.site-header .nav-link:focus-visible,
+.footer-privacy-link:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* =====================
+   HERO — le due fedi, in controluce
+   Si avvicinano piano piano e si intrecciano
+   ===================== */
+.hero {
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 236, 190, 0.55) 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 60%, var(--bg-c) 100%) !important;
+    padding: 7rem 0 5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .hero {
+        background:
+            radial-gradient(ellipse 70% 55% at 50% 0%, rgba(217, 178, 90, 0.16) 0%, transparent 70%),
+            linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 60%, var(--bg-c) 100%) !important;
+    }
+}
+
+/* Le fedi */
+.hero::before {
+    left: 50%;
+    top: 50%;
+    width: min(150vw, 1300px);
+    aspect-ratio: var(--rings-aspect);
+    background: var(--rings);
+    transform: translate(-50%, -50%);
+    mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 25%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 25%, transparent 85%);
+    opacity: 0.8;
+    animation: rings-meet 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Alone caldo + dissolvenza verso la sezione successiva */
+.hero::after {
+    inset: 0;
+    background:
+        radial-gradient(circle 14rem at 50% 52%, var(--gold-soft) 0%, transparent 100%),
+        radial-gradient(ellipse 90% 80% at 50% 45%, transparent 60%, rgba(120, 88, 20, 0.08) 100%),
+        linear-gradient(to bottom, transparent 75%, var(--bg-b) 100%);
+}
+
+@keyframes rings-meet {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleX(1.18);
+    }
+    to {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scaleX(1);
+    }
+}
+
+.hero-title {
+    color: var(--ink) !important;
+}
+
+.hero-subtitle {
+    color: var(--ink-soft) !important;
+}
+
+.rating-text {
+    color: var(--ink-faint) !important;
+}
+
+/* =====================
+   SCREENSHOTS — il tavolo rotondo visto dall'alto
+   Sedute attorno, appena accennate dietro le schermate
+   ===================== */
+.screenshots-section {
+    background: var(--bg-b) !important;
+}
+
+.screenshots-section::before {
+    top: 50%;
+    right: -14%;
+    width: min(80vw, 760px);
+    aspect-ratio: 1;
+    background: var(--table-seats);
+    transform: translateY(-50%) rotate(-12deg);
+    mask-image: radial-gradient(circle at 50% 50%, #000 35%, transparent 75%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 35%, transparent 75%);
+    opacity: 0.8;
+}
+
+.screenshots-section .section-header h2 {
+    color: var(--ink) !important;
+}
+
+.screenshots-section .section-description {
+    color: var(--ink-soft) !important;
+}
+
+/* =====================
+   FEATURES — le card sono "vetro" su carta,
+   ogni icona prende il colore della sua area nell'app
+   ===================== */
+.features-section {
+    background: linear-gradient(160deg, var(--bg-b) 0%, var(--bg-c) 55%, var(--bg-b) 100%) !important;
+}
+
+/* Una fede sola, grande, tagliata dal bordo: dettaglio dell'icona */
+.features-section::before {
+    left: -18%;
+    bottom: -42%;
+    width: min(90vw, 760px);
+    aspect-ratio: 1;
+    background: radial-gradient(circle closest-side, transparent 0 96%, var(--ring-line) 96.5% 100%, transparent 100.5%);
+    mask-image: radial-gradient(circle at 70% 25%, #000 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at 70% 25%, #000 0%, transparent 70%);
+    opacity: 0.7;
+}
+
+.features-section .section-header h2,
+.features-section .category-title {
+    color: var(--ink) !important;
+}
+
+.features-section .section-description,
+.features-section .category-description {
+    color: var(--ink-soft) !important;
+}
+
+.feature-card {
+    --tint: var(--gold);
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-top-color: var(--glass-border-top) !important;
+    box-shadow: var(--glass-shadow) !important;
+}
+
+/* Ciclo dei colori delle aree: invitati, tavoli, pagamenti, checklist, fornitori, programma */
+.feature-card:nth-child(6n + 1) { --tint: var(--area-guests); }
+.feature-card:nth-child(6n + 2) { --tint: var(--area-tables); }
+.feature-card:nth-child(6n + 3) { --tint: var(--area-payments); }
+.feature-card:nth-child(6n + 4) { --tint: var(--area-checklist); }
+.feature-card:nth-child(6n + 5) { --tint: var(--area-vendors); }
+.feature-card:nth-child(6n + 6) { --tint: var(--area-schedule); }
+
+.feature-title {
+    color: var(--ink) !important;
+}
+
+.feature-description {
+    color: var(--ink-soft) !important;
+}
+
+.feature-icon {
+    background:
+        radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--tint) 40%, transparent) 0%, color-mix(in srgb, var(--tint) 14%, transparent) 75%) !important;
+    border: 1px solid color-mix(in srgb, var(--tint) 45%, transparent) !important;
+    color: var(--tint) !important;
+    box-shadow: 0 0 18px color-mix(in srgb, var(--tint) 18%, transparent) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* =====================
+   DOWNLOAD / CTA — champagne, con le fedi in filigrana
+   ===================== */
+.download-section {
+    background:
+        radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255, 236, 190, 0.28) 0%, transparent 70%),
+        linear-gradient(135deg, var(--cta-a) 0%, var(--cta-b) 55%, var(--cta-c) 100%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.download-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    width: min(120vw, 900px);
+    aspect-ratio: var(--rings-aspect);
+    transform: translate(-50%, -50%);
+    background:
+        radial-gradient(circle closest-side at 35% 50%, transparent 0 95.5%, rgba(255, 255, 255, 0.35) 96% 100%, transparent 100.5%),
+        radial-gradient(circle closest-side at 65% 50%, transparent 0 95.5%, rgba(255, 255, 255, 0.35) 96% 100%, transparent 100.5%);
+}
+
+.download-section h2,
+.download-section p {
+    color: #ffffff !important;
+}
+
+/* =====================
+   REVIEWS — il filo con la scintilla al centro
+   Un piccolo ornamento, non una decorazione che pesa
+   ===================== */
+.testimonials-section {
+    background: linear-gradient(160deg, var(--bg-b) 0%, var(--bg-c) 55%, var(--bg-b) 100%) !important;
+}
+
+.testimonials-section::before {
+    top: 2.25rem;
+    left: 0;
+    right: 0;
+    height: 18px;
+    background:
+        /* losanga centrale */
+        linear-gradient(45deg, transparent 42%, var(--gold) 43% 57%, transparent 58%) 50% 50% / 14px 14px no-repeat,
+        linear-gradient(-45deg, transparent 42%, var(--gold) 43% 57%, transparent 58%) 50% 50% / 14px 14px no-repeat,
+        /* filo */
+        linear-gradient(var(--ring-line), var(--ring-line)) 50% 50% / 100% 1px no-repeat;
+    mask-image: linear-gradient(to right, transparent 5%, #000 35%, #000 65%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to right, transparent 5%, #000 35%, #000 65%, transparent 95%);
+    opacity: 0.8;
+}
+
+.testimonials-section .section-header h2 {
+    color: var(--ink) !important;
+}
+
+.testimonials-section .section-description {
+    color: var(--ink-soft) !important;
+}
+
+.testimonial-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-top-color: var(--glass-border-top) !important;
+    box-shadow: var(--glass-shadow) !important;
+}
+
+.testimonial-author {
+    color: var(--ink) !important;
+}
+
+.testimonial-quote {
+    color: var(--ink-soft) !important;
+}
+
+.star {
+    color: var(--gold) !important;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.site-footer {
+    background: var(--bg-footer) !important;
+    border-top: 1px solid var(--glass-border) !important;
+}
+
+.site-footer .brand-name,
+.footer-tagline,
+.footer-copyright p,
+.footer-privacy-link {
+    color: var(--ink-faint) !important;
+}
+
+.footer-privacy-link:hover {
+    color: var(--gold-deep) !important;
+}
+
+/* =====================
+   PRIVACY PAGE
+   ===================== */
+.privacy-page {
+    background: var(--bg-a) !important;
+    min-height: 100vh;
+}
+
+.privacy-title {
+    color: var(--ink) !important;
+}
+
+.privacy-content h2,
+.privacy-content h3 {
+    color: var(--ink) !important;
+}
+
+.privacy-content p,
+.privacy-content li {
+    color: var(--ink-soft) !important;
+}
+
+.privacy-content ul {
+    border-left: 2px solid var(--ring-line-faint);
+    padding-left: 1.5rem;
+}
+
+/* =====================
+   MOBILE — inquadrature più strette
+   ===================== */
+@media (max-width: 640px) {
+    .hero::before {
+        width: 200vw;
+        opacity: 0.6;
+    }
+    .screenshots-section::before {
+        right: -40%;
+        opacity: 0.5;
+    }
+    .features-section::before {
+        opacity: 0.45;
+    }
+}
+
+/* =====================
+   ACCESSIBILITÀ & FALLBACK
+   ===================== */
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+    }
+}
+
+/* Più contrasto: testi più decisi, nessun vetro, linee più marcate */
+@media (prefers-contrast: more) {
+    :root {
+        --ink-soft: var(--ink);
+        --ink-faint: var(--ink);
+        --glass-border: var(--gold-deep);
+    }
+    .hero::before,
+    .hero::after,
+    .screenshots-section::before,
+    .features-section::before,
+    .testimonials-section::before,
+    body::after {
+        display: none;
+    }
+}
+
+/* Riduci trasparenza / browser senza backdrop-filter: fondi pieni e leggibili */
+@media (prefers-reduced-transparency: reduce) {
+    .feature-card,
+    .testimonial-card {
+        background: var(--bg-b) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    .site-header {
+        background: var(--bg-a) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .feature-card,
+    .testimonial-card {
+        background: var(--bg-b) !important;
+    }
+    .site-header {
+        background: var(--bg-a) !important;
+    }
+}
